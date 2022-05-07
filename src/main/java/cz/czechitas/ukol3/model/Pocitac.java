@@ -2,11 +2,14 @@ package cz.czechitas.ukol3.model;
 
 public class Pocitac {
 
-    public boolean jeZapnuty;
 
+    private boolean jeZapnuty;
     private Disk pevnyDisk;
     private Pamet ram;
     private Procesor cpu;
+
+    public boolean jeZapnuty()  {
+        return jeZapnuty;  }
 
     public void zapniSe() {
         if (cpu == null ) {
@@ -15,7 +18,7 @@ public class Pocitac {
             System.err.println("Pocitac nema zadane parametry pameti"); }
         if (pevnyDisk == null ) {
             System.err.println("Pocitac nema zadane parametry disku"); }
-         else if (jeZapnuty()) {
+        else if (jeZapnuty()) {
             System.err.println("Pocitac je jiz zapnuty");
         } else {
             jeZapnuty = true;
@@ -23,18 +26,16 @@ public class Pocitac {
         }
     }
 
-    private boolean jeZapnuty() {
-        return false;
-    }
-
     public void vypniSe() {
-        if (jeZapnuty()) {
+        if  (jeZapnuty())
             jeZapnuty = false;
             System.out.println("Pocitac se vypnul");
-        }
     }
 
-
+    @Override
+    public String toString() {
+        return "Pocitac" + "jeZapnuty:" + "pevnyDisk +" + "ram +" + "cpu +" +'}';
+    }
 
 
     public Disk getPevnyDisk() {
@@ -63,6 +64,29 @@ public class Pocitac {
     public void setCpu(Procesor cpu) {
         this.cpu = cpu;
     }
+
+    public void vytvorSouborOVelikosti(long velikost) {
+        if (jeZapnuty()) {
+            if (velikost > (pevnyDisk.getKapacita() - pevnyDisk.getVyuziteMisto())) {
+                System.err.println("Nedostatek mista na disku");
+            } else {
+                pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() + velikost);
+                System.out.println("Soubor pridan na disk, aktualni vyuzita kapacita je: " + pevnyDisk.getVyuziteMisto());
+            }
+        }
+    }
+
+    public void vymazSouborOVelikosti(long velikost) {
+        if (jeZapnuty()) {
+            if (velikost > pevnyDisk.getVyuziteMisto()) {
+                System.err.println("Velikost souboru neodpovida");
+            } else {
+                pevnyDisk.setVyuziteMisto(pevnyDisk.getVyuziteMisto() - velikost);
+                System.out.println("Soubor z disku smazan, aktualni vyuzita kapacita je: " + pevnyDisk.getVyuziteMisto());
+            }
+        }
+    }
+
 }
 
 

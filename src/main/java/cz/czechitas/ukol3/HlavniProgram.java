@@ -13,9 +13,7 @@ public class HlavniProgram {
 
             Pocitac janyPocitac;
             janyPocitac = new Pocitac();
-            System.out.println(janyPocitac);
-            
-           // janyPocitac.zapniSe();
+            System.out.println(janyPocitac.toString());
 
             Procesor janyProcesor = new Procesor();
             janyProcesor.setVyrobce("Intel");
@@ -33,14 +31,28 @@ public class HlavniProgram {
             janyPocitac.setPevnyDisk(janyDisk);
 
 
-            janyPocitac.zapniSe();
-            janyPocitac.zapniSe();      // Vypise chybu, protoze pocitac uz bezi
-            System.out.println(janyPocitac.toString());
-            janyPocitac.vypniSe();
+
+           janyPocitac.zapniSe();
+           janyPocitac.zapniSe();      // Vypise chybu, protoze pocitac uz bezi
+           System.out.println(janyPocitac.toString());
+          /* janyPocitac.vypniSe();
+
 
             janyPocitac.vypniSe();      // Nevypise chybu, ale nic neprovede,
-            janyPocitac.vypniSe();      // protoze pocitac je uz vypnuty
+            janyPocitac.vypniSe();      // protoze pocitac je uz vypnuty  */
+
+
+            janyPocitac.vytvorSouborOVelikosti(500_000_000L);
+            janyPocitac.vytvorSouborOVelikosti(500_000_000_000L);
+
+            janyPocitac.vymazSouborOVelikosti(600_567_987L);
+
+
+
         }
+
+
+
 
 
     }
