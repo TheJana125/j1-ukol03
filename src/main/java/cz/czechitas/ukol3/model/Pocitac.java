@@ -34,7 +34,7 @@ public class Pocitac {
 
     @Override
     public String toString() {
-        return "Pocitac" + "jeZapnuty:" + "pevnyDisk +" + "ram +" + "cpu +" +'}';
+        return "Pocitac" + "je zapnuty, pokud jsou nastaveny paramtery" + "pevny Disk +" + "ram +" + "cpu.";
     }
 
 

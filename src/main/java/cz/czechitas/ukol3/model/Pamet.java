@@ -14,7 +14,9 @@ public class Pamet {
 
     @Override
     public String toString() {
-        return "Pamet" + "kapacita";
+        return "Pamet disku je" + kapacita + ".";
+
+
 
     }
 }

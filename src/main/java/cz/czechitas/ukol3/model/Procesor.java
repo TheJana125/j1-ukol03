@@ -24,7 +24,8 @@ public class Procesor {
 
     @Override
     public String toString() {
-        return "Procesor" + "vyrobce" + ", rychlost";
+        return "Procesor je urcen" + "vyrobcem" + vyrobce + "a rychlostí" + rychlost + "Hz.";
+
 
     }
 }
